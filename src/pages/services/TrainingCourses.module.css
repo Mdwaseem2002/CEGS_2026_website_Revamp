@@ -1,0 +1,457 @@
+.pageWrapper {
+  background-color: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  padding-bottom: 60px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.highlight {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  padding: 180px 0 100px;
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kickerBadge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding: 6px 16px;
+  border: 1px solid var(--gold-border);
+  border-radius: 100px;
+  background: var(--gold-glow);
+}
+
+.kickerDot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--gold);
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 8px var(--gold);
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.tagsContainer {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.heroTag {
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 8px 16px;
+  background: var(--gold-tint);
+  color: var(--gold);
+  border-radius: 8px;
+  border: 1px solid var(--gold-border);
+  transition: all 0.3s ease;
+}
+
+.heroTag:hover {
+  background: var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+/* Common Section Headers */
+.sectionHeaderCenter {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectionKicker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+/* Course Categories Grid */
+.categoriesSection {
+  padding: 80px 0;
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.categoryCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.categoryCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-border);
+  box-shadow: 0 8px 24px var(--gold-glow);
+}
+
+.categoryIcon {
+  color: var(--gold);
+  margin-bottom: 16px;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.categoryCard:hover .categoryIcon {
+  transform: scale(1.1);
+}
+
+.categoryTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.categoryCard:hover .categoryTitle {
+  color: var(--gold);
+}
+
+.categoryDesc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.categoryFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 12px;
+}
+
+.courseCount {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.exploreLink {
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.categoryCard:hover .exploreLink {
+  color: var(--gold);
+}
+
+/* Why Learn With Us Grid */
+.benefitsSection {
+  padding: 80px 0;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.benefitCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-border);
+}
+
+.benefitIcon {
+  color: var(--gold);
+  margin: 0 auto 20px;
+  background: var(--gold-glow);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.benefitCard:hover .benefitIcon {
+  transform: scale(1.1);
+}
+
+.benefitTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.benefitDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* Learning Path Section */
+.pathSection {
+  padding: 80px 0;
+}
+
+.pathGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.pathStep {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  padding: 32px 24px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.pathStep:hover {
+  border-color: var(--gold-border);
+  transform: translateY(-5px);
+}
+
+.stepNumber {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.pathStep:hover .stepNumber {
+  color: var(--gold-border);
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.stepDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+.connectorLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 80px 0 100px;
+}
+
+.ctaCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--gold-border);
+  border-radius: 24px;
+  padding: 56px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.ctaTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 36px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.ctaText {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background-color: var(--gold);
+  color: #000;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 40px;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px var(--gold-border);
+}
+
+.ctaDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 32px;
+}
+
+.ctaFeatures {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.ctaFeatureItem {
+  text-align: center;
+}
+
+.ctaFeatureTitle {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--gold);
+}
+
+.ctaFeatureDesc {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .categoriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pathGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .connectorLine {
+    display: none;
+  }
+  .ctaFeatures {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .categoriesGrid,
+  .benefitsGrid,
+  .pathGrid {
+    grid-template-columns: 1fr;
+  }
+  .ctaCard {
+    padding: 40px 24px;
+  }
+}

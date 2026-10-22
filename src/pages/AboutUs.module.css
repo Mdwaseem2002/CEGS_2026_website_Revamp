@@ -1,0 +1,517 @@
+.pageWrapper {
+  background-color: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  padding-bottom: 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.highlight {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.sectionKicker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  border: 1px solid var(--gold-border);
+  border-radius: 100px;
+  background: var(--gold-glow);
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  padding: 150px 0 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, var(--gold-tint) 0%, rgba(5, 5, 5, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floatingIcon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: var(--gold);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 24px;
+}
+
+.kickerBadge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding: 6px 16px;
+  border: 1px solid var(--gold-border);
+  border-radius: 100px;
+  background: var(--gold-glow);
+}
+
+.kickerDot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--gold);
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 8px var(--gold);
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 48px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNumber {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* About Company */
+.aboutCompanySection {
+  padding: 80px 0;
+}
+
+.aboutHeader {
+  margin-bottom: 24px;
+}
+
+.bracketKicker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.aboutContentBox {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  padding: 48px;
+}
+
+.aboutSubKicker {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.textBody {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.textBody:last-child {
+  margin-bottom: 0;
+}
+
+/* Directors Section */
+.directorsSection {
+  padding: 80px 0;
+}
+
+.directorCard {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  background: transparent;
+  margin-bottom: 64px;
+}
+.directorCard.reverseCard {
+  flex-direction: row-reverse;
+}
+
+.directorImageWrapper {
+  flex: 0 0 300px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.directorImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.directorInfo {
+  flex: 1;
+}
+
+.directorName {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.directorRole {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.directorQuote {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 24px;
+  border-left: 2px solid var(--gold);
+  padding-left: 16px;
+}
+
+.textBodySmall {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.tagsContainer {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  padding: 4px 12px;
+  background: var(--gold-glow);
+  color: var(--gold);
+  border-radius: 100px;
+  border: 1px solid var(--gold-border);
+}
+
+/* What Makes Us Different */
+.differentSection {
+  padding: 80px 0;
+}
+
+.differentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.diffCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  padding: 40px 32px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.diffCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-border);
+}
+
+.diffIconWrapper {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 24px;
+  border-radius: 12px;
+  background: var(--gold-glow);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diffTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.diffDesc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* Leadership Team */
+.leadershipTeamSection {
+  padding: 80px 0;
+}
+
+.teamList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.teamMemberRow {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.teamAvatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid var(--gold-border);
+}
+
+.teamAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teamDetails {
+  flex: 1;
+}
+
+.teamName {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.teamRole {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.teamDesc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* Core Values */
+.coreValuesSection {
+  padding: 80px 0 120px;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.valueCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--surface);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.valueCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 1px;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+  opacity: 0.5;
+}
+
+.valueIcon {
+  color: var(--gold);
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.valueTitle {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.valueDesc {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .directorCard, .directorCard.reverseCard {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+  .directorQuote {
+    border-left: none;
+    padding-left: 0;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 16px;
+    display: inline-block;
+  }
+  .tagsContainer {
+    justify-content: center;
+  }
+  .differentGrid {
+    grid-template-columns: 1fr;
+  }
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .heroStats {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .statDivider {
+    width: 40px;
+    height: 1px;
+  }
+  .teamMemberRow {
+    flex-direction: column;
+    text-align: center;
+  }
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

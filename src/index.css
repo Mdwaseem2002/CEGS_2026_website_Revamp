@@ -1,0 +1,78 @@
+:root {
+  --bg: #0A0A0B;
+  --bg-deep: #050506;
+  --surface: #111113;
+  --surface-raised: #18181B;
+  --border: #26262A;
+  
+  --gold: #D9B35B;
+  --gold-light: #F3E2A9;
+  --gold-dark: #9C7A2F;
+  --gold-gradient: linear-gradient(135deg, #F7E7AE 0%, #E3C16F 35%, #C9A24B 65%, #9C7A2F 100%);
+  --gold-border: rgba(217, 179, 91, 0.28);
+  --gold-glow: rgba(217, 179, 91, 0.16);
+  --gold-tint: rgba(217, 179, 91, 0.08);
+
+  --text: #FFFFFF;
+  --text-body: #BDB7A8;
+  --text-muted: #8C877B;
+  --text-on-gold: #0A0A0B;
+
+  --success: #4ADE80;
+  --error: #F87171;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Form Focus State */
+input:focus, textarea:focus, select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+  outline: none;
+}
+
+/* Selection Color */
+::selection {
+  background: var(--gold);
+  color: var(--text-on-gold);
+}
+
+/* Highlighted Heading Gradient Text (Premium Touch) */
+.gradient-heading {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+}

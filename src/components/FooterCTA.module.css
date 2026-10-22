@@ -1,0 +1,201 @@
+.ctaSection {
+  position: relative;
+  width: 100%;
+  padding: 100px 5%;
+  background: transparent; /* Assuming it sits above footer on the main bg */
+  z-index: 10;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  opacity: 0.05;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.goldText {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* 
+  FINAL STANDARD LAYOUT
+*/
+.layoutContainer {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.leftCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+
+.finalHeading {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 32px; /* reduced from 42px */
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -1px;
+  margin: 0;
+  line-height: 1.1;
+  transform-origin: left center;
+}
+
+.tagline {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 18px;
+  color: var(--text-body);
+  max-width: 500px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.rightCol {
+  flex: 0 0 auto;
+}
+
+/* EMAIL CARD */
+.emailCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px 35px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  transition: border-color 0.3s ease;
+}
+
+.emailCard:hover {
+  border-color: var(--gold-border);
+}
+
+.emailIconWrapper {
+  background: var(--gold-glow);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emailIcon {
+  color: var(--gold);
+  width: 24px;
+  height: 24px;
+}
+
+.emailContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.emailLabel {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.emailAddress {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.emailBtn {
+  background: var(--text);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  margin-left: 10px;
+}
+
+.emailBtnIcon {
+  color: #000;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.emailBtn:hover {
+  background: var(--gold);
+  transform: scale(1.05);
+}
+
+.emailBtn:hover .emailBtnIcon {
+  transform: translateX(3px);
+  color: var(--text);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .layoutContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .headingPlaceholder {
+    height: auto;
+    min-height: 50px;
+  }
+
+  .finalHeading {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .giantWord {
+    font-size: 20vw;
+  }
+  .giantFinalHeading {
+    font-size: 10vw;
+  }
+  .finalHeading {
+    font-size: 32px;
+  }
+  .emailCard {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 20px;
+    width: 100%;
+  }
+  .emailBtn {
+    align-self: flex-end;
+    margin-left: 0;
+  }
+}

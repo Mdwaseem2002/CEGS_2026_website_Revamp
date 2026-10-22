@@ -1,0 +1,199 @@
+.processSection {
+  background-color: var(--bg);
+  padding: 120px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.kicker {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.header h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.subheading {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.5vw, 18px);
+  color: var(--gold);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timelineContainer {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.lineTrack {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transform: translateX(-50%);
+  border-radius: 4px;
+}
+
+.lineFill {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gold);
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.stepWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.stepWrapper:last-child {
+  margin-bottom: 0;
+}
+
+.leftStep {
+  flex-direction: row;
+}
+
+.rightStep {
+  flex-direction: row-reverse;
+}
+
+.node {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 0 0 10px var(--bg);
+}
+
+.cardContainer {
+  width: 42%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 20px;
+  position: relative;
+  border: 1px solid var(--surface);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: var(--gold-border);
+}
+
+.emptySpace {
+  width: 42%;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.iconPlaceholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--gold-glow);
+  color: var(--gold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stepBadge {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  background: var(--gold-glow);
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: 1px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .lineTrack, .lineFill {
+    left: 24px;
+    transform: none;
+  }
+  .node {
+    left: 24px;
+    transform: translateX(-50%);
+  }
+  .stepWrapper, .leftStep, .rightStep {
+    flex-direction: column !important;
+    padding-left: 70px;
+  }
+  .cardContainer {
+    width: 100%;
+    padding: 30px 24px;
+  }
+  .emptySpace {
+    display: none;
+  }
+}

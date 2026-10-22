@@ -1,0 +1,153 @@
+.section {
+  height: 250vh;
+  position: relative;
+  background: var(--bg); 
+  overflow: clip; 
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.titleSequence {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* We use x: "-50%", y: "-50%" in Framer Motion to preserve centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+/* Designed to match "Our Competitive Edge" heading style */
+.mainTitle {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -1.5px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.mainSubtitle {
+  color: var(--gold);
+  font-weight: 600;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.gridContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px; 
+}
+
+.gridCard {
+  position: absolute;
+  /* Shift down slightly so it doesn't overlap with the top title */
+  top: calc(50%);
+  left: calc(50% - 125px);
+  width: 250px;
+  height: 180px;
+  background: #111;
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 2px 8px var(--gold-glow);
+  border: 1px solid var(--surface);
+  will-change: transform, opacity;
+  z-index: 5;
+  transition: border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.iconWrapper {
+  margin-bottom: 15px;
+  color: var(--gold);
+  z-index: 2;
+}
+
+.cardTitle {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  z-index: 2;
+}
+
+.glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gridCard:hover .glow {
+  opacity: 1;
+}
+
+.gridCard:hover {
+  border-color: var(--gold-border);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1200px) {
+  .gridContainer {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 900px) {
+  .gridContainer {
+    transform: scale(0.65);
+  }
+}
+
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 32px;
+  }
+  .mainSubtitle {
+    font-size: 14px;
+  }
+  .gridContainer {
+    transform: scale(0.5); 
+  }
+}
+
+@media (max-width: 480px) {
+  .mainTitle {
+    font-size: 28px;
+  }
+  .gridContainer {
+    transform: scale(0.35);
+  }
+}

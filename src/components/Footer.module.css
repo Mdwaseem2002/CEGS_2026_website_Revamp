@@ -1,0 +1,210 @@
+.footerWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.bigTextContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.bigText {
+  font-family: 'Montserrat', var(--font-heading, 'Inter'), sans-serif;
+  font-size: 19vw; /* Kept the smaller size as requested */
+  font-weight: 800; /* Clean, bold weight */
+  line-height: 0.8;
+  cursor: default;
+  letter-spacing: -0.05em; /* Tight architectural tracking */
+  text-transform: uppercase;
+  transform: scaleX(1.05); /* Very slight stretch for that wide geometric look */
+}
+
+.bigTextLetter {
+  color: transparent;
+  /* Clean 2D flat look, enhanced with a very subtle premium gradient */
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* No heavy strokes or 3D extrusions */
+  -webkit-text-stroke: 0;
+  
+  /* Soft ambient drop shadow so it pops cleanly against the dark background */
+  filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px var(--gold-glow));
+}
+
+.footer {
+  background-color: #0a0a0c;
+  color: var(--text);
+  padding: 80px 5% 24px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 80px 80px 0 0;
+  margin-top: -120px; /* Brought the footer back up to hide the bottom of the text again */
+  z-index: 10;
+  box-shadow: 0 -10px 30px var(--gold-tint), inset 0 2px 10px var(--gold-tint);
+  border-top: 1px solid var(--gold-border);
+}
+
+
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Main Footer Grid */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.brandDesc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 350px;
+  margin-bottom: 24px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 16px;
+}
+
+.socialIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  background: var(--gold-gradient);
+  color: var(--text-on-gold);
+  font-weight: 600;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 24px var(--gold-glow);
+  transform: translateY(-3px);
+}
+
+.linkColumnTitle {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.linkItem a {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 15px;
+  color: var(--text-body);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.linkItem a:hover {
+  color: var(--gold);
+  transform: translateX(5px);
+}
+
+/* Bottom Bar */
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.legalLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.legalLinks a {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legalLinks a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .brandColumn {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 24px 32px;
+    border-radius: 40px 40px 0 0;
+  }
+  .mainGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .bottomBar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}

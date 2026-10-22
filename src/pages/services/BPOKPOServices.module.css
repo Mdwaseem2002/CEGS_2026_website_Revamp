@@ -1,0 +1,234 @@
+.pageWrapper {
+  background-color: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  padding-bottom: 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.highlight {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  padding: 180px 0 100px;
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kickerBadge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding: 6px 16px;
+  border: 1px solid var(--gold-border);
+  border-radius: 100px;
+  background: var(--gold-glow);
+}
+
+.kickerDot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--gold);
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 8px var(--gold);
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.tagsContainer {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.heroTag {
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 8px 16px;
+  background: var(--gold-tint);
+  color: var(--gold);
+  border-radius: 8px;
+  border: 1px solid var(--gold-border);
+  transition: all 0.3s ease;
+}
+
+.heroTag:hover {
+  background: var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+/* Our Services Section */
+.servicesSection {
+  padding: 80px 0;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectionKicker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.serviceCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceIcon {
+  color: var(--gold);
+  margin-bottom: 24px;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.serviceCardTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.serviceCardDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.featureMarker {
+  width: 5px;
+  height: 5px;
+  background-color: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Our Expertise Section */
+.expertiseSection {
+  padding: 60px 0 100px;
+}
+
+.expertiseCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.expertiseCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-border);
+  box-shadow: 0 8px 24px var(--gold-glow);
+}
+
+.expertiseText {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+  .expertiseCard {
+    padding: 32px 24px;
+  }
+}

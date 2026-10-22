@@ -1,0 +1,172 @@
+.section {
+  background: var(--bg);
+  padding-top: 40px;
+  padding-bottom: 20vh; 
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5vh;
+  position: sticky;
+  top: 0;
+  padding: 20px 0;
+  background: linear-gradient(180deg, var(--bg) 80%, transparent);
+  z-index: 50;
+}
+
+.title {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -1.5px;
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--gold);
+  font-weight: 600;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.stackContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cardContainer {
+  /* Give each card 100vh of scroll distance to exactly match the scroll timing of the video */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: sticky;
+}
+
+.card {
+  width: 100%;
+  height: 55vh; /* Flexible height for better scaling */
+  min-height: 400px;
+  max-height: 500px; /* Slightly bigger max height */
+  border-radius: 30px;
+  padding: 35px; /* Comfortable padding */
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Text gets slightly more room, like 2 steps ago */
+  gap: 40px;
+  align-items: stretch;
+  box-shadow: 0 -15px 30px rgba(0,0,0,0.5), inset 0 2px 8px var(--gold-border);
+  border: 1px solid var(--gold-border);
+  transform-origin: top center;
+  will-change: transform, filter; 
+}
+
+.cardLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  gap: 30px;
+  padding: 10px 20px 10px 10px; /* Small inner padding */
+  height: 100%;
+}
+
+.cardRight {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px; /* Curved edge for the image */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Slight shadow for image depth */
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cardNumber {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 28px;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardCategory {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.cardDesc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.8;
+  max-width: 95%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
+  .card {
+    height: auto;
+    min-height: 450px;
+    padding: 0;
+    border-radius: 20px;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .cardLeft {
+    padding: 30px;
+    gap: 20px;
+  }
+  .cardRight {
+    height: 250px;
+  }
+  .cardTitle {
+    font-size: 28px;
+  }
+  .cardDesc {
+    font-size: 16px;
+  }
+  .cardNumber {
+    font-size: 20px;
+  }
+}
