@@ -9,7 +9,7 @@ const points = [
     number: "01",
     category: "GLOBAL REACH",
     bgColor: "#111111",
-    image: "/images/global_talent.jpg",
+    image: "/images/Global Talent Network.png",
   },
   {
     title: "Industry Expertise",
@@ -17,7 +17,7 @@ const points = [
     number: "02",
     category: "SPECIALIZATION",
     bgColor: "#181818",
-    image: "/images/industry_expertise.jpg",
+    image: "/images/Industry Expertise.png",
   },
   {
     title: "Agile Methodology",
@@ -25,7 +25,7 @@ const points = [
     number: "03",
     category: "WORKFLOW",
     bgColor: "#1f1f1f",
-    image: "/images/agile_methodology.jpg",
+    image: "/images/Agile Methodology.png",
   },
   {
     title: "Data-Driven Insights",
@@ -33,7 +33,7 @@ const points = [
     number: "04",
     category: "ANALYTICS",
     bgColor: "#262626",
-    image: "/images/data_insights.jpg",
+    image: "/images/Data-Driven Insights.png",
   },
   {
     title: "End-to-End Solutions",
@@ -41,7 +41,7 @@ const points = [
     number: "05",
     category: "SERVICES",
     bgColor: "#2d2d2d",
-    image: "/images/end_to_end.jpg",
+    image: "/images/End-to-End Solutions.png",
   },
   {
     title: "Scalable Infrastructure",
@@ -49,7 +49,7 @@ const points = [
     number: "06",
     category: "INFRASTRUCTURE",
     bgColor: "#333333",
-    image: "/images/scalable_infra.jpg",
+    image: "/images/Scalable Infrastructure.png",
   },
   {
     title: "Dedicated Support",
@@ -58,7 +58,7 @@ const points = [
     category: "CLIENT SUCCESS",
     bgColor: "var(--gold)", // Attractive Gold!
     textColor: "#000",
-    image: "/images/dedicated_support.jpg",
+    image: "/images/Dedicated Support.png",
   }
 ];
 

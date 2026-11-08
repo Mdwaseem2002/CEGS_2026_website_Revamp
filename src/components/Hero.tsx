@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { services } from '../data/services';
 import { ArrowRight } from 'lucide-react';
@@ -114,7 +115,7 @@ const Hero = () => {
             animate="center"
             exit="exit"
             className={styles.backgroundImage}
-            style={{ backgroundImage: `url(${activeService.image})` }}
+            style={{ backgroundImage: `url("${encodeURI(activeService.image)}")` }}
             transition={{
               duration: 1.4,
               ease: [0.25, 0.1, 0.25, 1] // Smooth cinematic expansion ease
@@ -176,12 +177,18 @@ const Hero = () => {
               <motion.h1 variants={itemVariants as any} custom={direction} className={styles.title}>{activeService.title}</motion.h1>
               <motion.p variants={itemVariants as any} custom={direction} className={styles.description}>{activeService.shortDescription}</motion.p>
               
-              <motion.button variants={itemVariants as any} custom={direction} className={styles.exploreButton}>
-                <span>Explore Service</span>
-                <div className={styles.iconCircle}>
-                  <ArrowRight size={18} />
-                </div>
-              </motion.button>
+              <Link
+                to={`/services/${activeService.id}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ textDecoration: 'none' }}
+              >
+                <motion.button variants={itemVariants as any} custom={direction} className={styles.exploreButton}>
+                  <span>Explore Service</span>
+                  <div className={styles.iconCircle}>
+                    <ArrowRight size={18} />
+                  </div>
+                </motion.button>
+              </Link>
             </motion.div>
           </AnimatePresence>
         </div>

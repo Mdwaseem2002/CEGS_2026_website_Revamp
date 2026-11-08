@@ -37,7 +37,7 @@ const MissionVision = () => {
             >
               {/* FRONT (Image Left Half) */}
               <div className={styles.front}>
-                <img src="/images/vision_mission_wide.jpg" className={styles.imageLeft} alt="Vision" />
+                <img src="/images/vision mission.png" className={styles.imageLeft} alt="Vision" />
               </div>
               
               {/* BACK (Content) */}
@@ -57,7 +57,7 @@ const MissionVision = () => {
             >
               {/* FRONT (Image Right Half) */}
               <div className={styles.front}>
-                <img src="/images/vision_mission_wide.jpg" className={styles.imageRight} alt="Mission" />
+                <img src="/images/vision mission.png" className={styles.imageRight} alt="Mission" />
               </div>
               
               {/* BACK (Content) */}
