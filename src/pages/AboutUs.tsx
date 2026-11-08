@@ -303,7 +303,7 @@ const AboutUs = () => {
             {[
               { img: "raiyan_ahmed.png", name: "Mohammed Raiyan Ahmed", role: "Delivery & Business Strategy Expert Director", desc: "Spearheading strategic business development initiatives while efficiently managing end-to-end billing processes and overseeing key financial operations to support organizational growth.", tags: ["Business Dev", "Finance"] },
               { img: "nusrath_hussain.png", name: "Nusrath Hussain", role: "Talent Acquisition Director", desc: "HR Manager overseeing end-to-end recruitment operations, aligning talent acquisition strategies with business objectives. Responsible for optimizing hiring processes, ensuring efficiency, quality, and client satisfaction.", tags: ["Recruitment", "Talent"] },
-              { img: "heena_begum.png", name: "Heena Begum", role: "Finance & Payroll Director", desc: "HR Generalist with a dual focus on people operations and billing oversight, playing a key role in both workforce management and financial coordination. Ensuring smooth HR functions and accurate billing processes.", tags: ["HR Ops", "Payroll"] }
+              { img: "heena.png", name: "Heena", objectPosition: "center 20%", role: "Finance & Payroll Director", desc: "HR Generalist with a dual focus on people operations and billing oversight, playing a key role in both workforce management and financial coordination. Ensuring smooth HR functions and accurate billing processes.", tags: ["HR Ops", "Payroll"] }
             ].map((member, idx) => (
               <motion.div 
                 key={idx}
@@ -318,7 +318,11 @@ const AboutUs = () => {
                   className={styles.teamAvatar}
                   whileHover={{ rotate: 5, scale: 1.1 }}
                 >
-                  <img src={`/images/${member.img}`} alt={member.name} />
+                  <img 
+                    src={`/images/${member.img}`} 
+                    alt={member.name}
+                    style={member.objectPosition ? { objectPosition: member.objectPosition } : undefined} 
+                  />
                 </motion.div>
                 <div className={styles.teamDetails}>
                   <h4 className={styles.teamName}>{member.name}</h4>
