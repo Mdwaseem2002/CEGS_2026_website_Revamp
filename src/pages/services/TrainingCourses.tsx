@@ -1,18 +1,229 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Factory, Layout, Cpu, Monitor, Terminal, Cloud, Network, 
   Search, Bot, Lock, Settings, 
-  Award, Wrench, Users, GraduationCap, Target, Handshake
+  Award, Wrench, Users, GraduationCap, Target, Handshake,
+  CheckCircle2, Clock, Calendar, Briefcase, Phone, ArrowRight,
+  ShieldCheck, Sparkles, TrendingUp, IndianRupee
 } from 'lucide-react';
 import styles from './TrainingCourses.module.css';
 
+interface ProgramStep {
+  step: string;
+  title: string;
+  desc: string;
+  points?: string[];
+}
+
+interface CareerProgram {
+  id: string;
+  title: string;
+  tagline: string;
+  duration: string;
+  badge?: string;
+  popular?: boolean;
+  eligibility: string;
+  fee: string;
+  feeSubtext: string;
+  compensationLabel: string;
+  compensationValue: string;
+  placementBadge: string;
+  placementDetails: string;
+  highlights: string[];
+  whyChoose: string[];
+  journeyTitle: string;
+  journey: ProgramStep[];
+}
+
+const careerPrograms: CareerProgram[] = [
+  {
+    id: "1-month-starter",
+    title: "1-Month Career Starter Program",
+    tagline: "Build Skills. Become Job-Ready. Start Your Career!",
+    duration: "1 Month",
+    badge: "Fast-Track Entry",
+    popular: false,
+    eligibility: "2nd PUC Passed Candidates",
+    fee: "₹10,000 Only",
+    feeSubtext: "Complete one-time program fee",
+    compensationLabel: "Monthly In-Hand Salary",
+    compensationValue: "₹15,000 – ₹18,000",
+    placementBadge: "Non-IT Placement Opportunity",
+    placementDetails: "Guaranteed placement opportunity in a suitable corporate Non-IT role upon completing the 1-month training curriculum.",
+    highlights: [
+      "Rapid 30-Day Job Readiness Curriculum",
+      "Comprehensive Skill & Strength Assessment",
+      "Verbal Communication & Professional Confidence",
+      "ATS-Compliant Resume Building Activities",
+      "End-to-End Profile Management & Job Placement"
+    ],
+    whyChoose: [
+      "Structured Learning",
+      "Communication Development",
+      "Resume & Profile Building",
+      "Career Guidance",
+      "Non-IT Placement",
+      "Placement Support"
+    ],
+    journeyTitle: "Your 1-Month Career Journey",
+    journey: [
+      {
+        step: "Step 01",
+        title: "Skill Assessment",
+        desc: "Evaluate your core strengths, aptitudes, and career interests through comprehensive baseline testing."
+      },
+      {
+        step: "Step 02",
+        title: "Communication Training",
+        desc: "Improve your verbal communication, body language, tone, and professional confidence for corporate environments."
+      },
+      {
+        step: "Step 03",
+        title: "Resume Building Activities",
+        desc: "Create a polished, modern, professional, and job-ready resume that passes employer screening."
+      },
+      {
+        step: "Step 04",
+        title: "Profile Management",
+        desc: "Build and optimize your LinkedIn and professional profiles to stand out to hiring recruiters."
+      },
+      {
+        step: "Step 05",
+        title: "Non-IT Placement",
+        desc: "Interview scheduling and direct placement opportunities in a suitable verified Non-IT corporate role."
+      }
+    ]
+  },
+  {
+    id: "2-month-growth",
+    title: "Freshers Growth Training Program",
+    tagline: "Build Skills. Gain Experience. Kickstart Your Career.",
+    duration: "2 Months",
+    badge: "Accelerated Upskilling",
+    popular: false,
+    eligibility: "Graduates & Job-Seeking Freshers",
+    fee: "₹40,000",
+    feeSubtext: "No Stipend during training",
+    compensationLabel: "Placement Assistance",
+    compensationValue: "6 Months Continued Support",
+    placementBadge: "6 Months Placement Assistance",
+    placementDetails: "Continued guidance, interview pipelines, doubt resolution, and career support for 6 full months after program completion.",
+    highlights: [
+      "Targeted 8-Week Skill & Industry Curriculum",
+      "Personalized Course of Action for Every Student",
+      "Core Domain & Technical Course Training",
+      "Interactive 1-on-1 Doubt Clarification Sessions",
+      "6 Months Dedicated Post-Training Placement Guidance"
+    ],
+    whyChoose: [
+      "Structured Learning",
+      "Personalized Career Guidance",
+      "Technical & Non-Technical Skills",
+      "Practical Training",
+      "Dedicated Mentorship",
+      "Placement Support"
+    ],
+    journeyTitle: "2-Month Structured Curriculum & Placement Path",
+    journey: [
+      {
+        step: "Month 1",
+        title: "Assessment & Intensive Training",
+        desc: "Comprehensive diagnostic assessment and tailored daily training sessions covering core industry competencies.",
+        points: [
+          "Skill assessment & diagnostic profiling",
+          "Personalized course of action & roadmap",
+          "Professional communication training",
+          "Core domain course training",
+          "Professional profile management"
+        ]
+      },
+      {
+        step: "Month 2",
+        title: "Doubt Clarification & Placement",
+        desc: "Practical application, personalized doubt clearing, interview simulations, and active recruiter alignment.",
+        points: [
+          "In-depth doubt clarification sessions",
+          "Placement guidance & interview preparation",
+          "Profile management & interview scheduling"
+        ]
+      }
+    ]
+  },
+  {
+    id: "6-month-flagship",
+    title: "6-Month Freshers Growth Training Program",
+    tagline: "Build Skills. Gain Experience. Get Interview Ready.",
+    duration: "6 Months (24 Weeks)",
+    badge: "Flagship Immersive",
+    popular: true,
+    eligibility: "BE / B.Tech / BCA / MCA / BSc / Any Graduate",
+    fee: "Contact for Enrollment",
+    feeSubtext: "Includes 24 Weeks Structured Learning • 5 Career Tracks",
+    compensationLabel: "Monthly Stipend Included",
+    compensationValue: "₹10K – ₹12K & ₹20K – ₹22K / mo",
+    placementBadge: "12 Months Placement Assistance Guarantee",
+    placementDetails: "Your journey doesn't end after 6 months! Candidates who do not secure a placement within the initial 6 months will receive an additional 12 months of placement assistance, helping them access further opportunities.",
+    highlights: [
+      "24 Weeks of Comprehensive Deep-Dive Learning across 5 Tracks",
+      "Earn While You Learn: Up to ₹22,000/month Stipend",
+      "Live Real-World Projects & Client Simulations",
+      "Rigorous Mock Interviews with Senior Corporate Evaluators",
+      "Extended 12 Months Placement Assistance Guarantee"
+    ],
+    whyChoose: [
+      "Structured Learning",
+      "Personalized Career Guidance",
+      "Technical & Non-Technical Skills",
+      "Practical Project Exposure",
+      "Continuous Mentorship",
+      "Extended Placement Support"
+    ],
+    journeyTitle: "Your 6-Month Roadmap with CEGS",
+    journey: [
+      {
+        step: "Month 1",
+        title: "Assessment & Planning",
+        desc: "Evaluate baseline skills and formulate the exact customized training path and track allocation."
+      },
+      {
+        step: "Month 2",
+        title: "Communication & Training",
+        desc: "Improve business communication, workplace etiquette, and build a competitive professional profile."
+      },
+      {
+        step: "Month 3",
+        title: "Personality & Image Building",
+        desc: "Enhance professional confidence, corporate grooming, executive presence, and get interview-ready."
+      },
+      {
+        step: "Month 4",
+        title: "Mock Interviews & Projects",
+        desc: "Practice panel mock interviews and build real-time hands-on industry project portfolios."
+      },
+      {
+        step: "Month 5",
+        title: "Placement Preparation",
+        desc: "Receive intensive placement support, tailored resume distributions, and clear advanced technical doubts."
+      },
+      {
+        step: "Month 6",
+        title: "Placement Support",
+        desc: "Resolve placement queries, participate in company hiring drives, and transition into your corporate career."
+      }
+    ]
+  }
+];
+
 const TrainingCourses = () => {
+  const [selectedProgramId, setSelectedProgramId] = useState("6-month-flagship");
 
   useEffect(() => {
     document.title = "Professional Training Courses | CEGS";
   }, []);
+
+  const selectedProgram = careerPrograms.find(p => p.id === selectedProgramId) || careerPrograms[2];
 
   const categoryList = [
     { icon: <Factory size={24} />, title: "OEM", desc: "Comprehensive OEM certification programs", courses: "45" },
@@ -105,6 +316,191 @@ const TrainingCourses = () => {
               <span className={styles.heroTag}>Expert Trainers</span>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Flagship Job-Ready Training Programs Section */}
+      <section className={styles.programsSection} id="featured-programs">
+        <div className={styles.container}>
+          <motion.div 
+            className={styles.programsHeader}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className={styles.kickerBadge}>
+              <span className={styles.kickerDot}></span> CAREER LAUNCHPAD
+            </div>
+            <h2 className={styles.heroTitle} style={{ fontSize: 'clamp(36px, 4.5vw, 52px)' }}>
+              Flagship Job-Ready <span className={styles.highlight}>Training Programs</span>
+            </h2>
+            <p className={styles.programsSubtitle}>
+              Tailored for students, freshers, and job-seekers to bridge the gap between academic qualifications and high-paying corporate roles with dedicated placement assistance.
+            </p>
+          </motion.div>
+
+          {/* 3 Program Comparison Overview Cards */}
+          <div className={styles.programsGrid}>
+            {careerPrograms.map((prog) => {
+              const isActive = prog.id === selectedProgramId;
+              return (
+                <div 
+                  key={prog.id}
+                  className={`${styles.programCard} ${isActive ? styles.programCardActive : ''}`}
+                  onClick={() => setSelectedProgramId(prog.id)}
+                >
+                  <div className={styles.cardTopRow}>
+                    <span className={styles.durationPill}>
+                      <Clock size={12} /> {prog.duration}
+                    </span>
+                    {prog.popular && (
+                      <span className={styles.flagshipBadge}>
+                        <Sparkles size={11} style={{ display: 'inline', marginRight: 4 }} /> MOST POPULAR
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className={styles.cardProgramTitle}>{prog.title}</h3>
+                  <p className={styles.cardProgramTagline}>{prog.tagline}</p>
+
+                  <div className={styles.cardMetricsBox}>
+                    <div className={styles.metricRow}>
+                      <span className={styles.metricRowLabel}>Eligibility:</span>
+                      <span className={styles.metricRowValue}>{prog.eligibility}</span>
+                    </div>
+                    <div className={styles.metricRow}>
+                      <span className={styles.metricRowLabel}>Program Fee:</span>
+                      <span className={`${styles.metricRowValue} ${styles.metricRowValueGold}`}>{prog.fee}</span>
+                    </div>
+                    <div className={styles.metricRow}>
+                      <span className={styles.metricRowLabel}>{prog.compensationLabel}:</span>
+                      <span className={styles.metricRowValue} style={{ color: 'var(--success)' }}>
+                        {prog.compensationValue}
+                      </span>
+                    </div>
+                    <div className={styles.eligibilityRow}>
+                      <ShieldCheck size={16} color="var(--gold)" />
+                      <span>{prog.placementBadge}</span>
+                    </div>
+                  </div>
+
+                  <ul className={styles.bulletHighlights}>
+                    {prog.highlights.slice(0, 4).map((hl, i) => (
+                      <li key={i} className={styles.bulletItem}>
+                        <CheckCircle2 size={15} className={styles.bulletIcon} />
+                        <span>{hl}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button 
+                    className={styles.selectTabBtn}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProgramId(prog.id);
+                    }}
+                  >
+                    <span>{isActive ? 'Viewing Full Roadmap' : 'Explore Program Roadmap'}</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Deep-Dive Interactive Syllabus & Journey Viewer */}
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={selectedProgram.id}
+              className={styles.deepDiveSection}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              <div className={styles.deepDiveHeader}>
+                <div className={styles.deepDiveTitleArea}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
+                    <span className={styles.durationPill}>
+                      <Calendar size={13} /> {selectedProgram.duration}
+                    </span>
+                    <span className={styles.heroTag} style={{ padding: '4px 12px', fontSize: 11 }}>
+                      {selectedProgram.badge}
+                    </span>
+                  </div>
+                  <h3>{selectedProgram.title}</h3>
+                  <p>{selectedProgram.tagline}</p>
+                </div>
+
+                <div className={styles.deepDiveActionArea}>
+                  <Link 
+                    to="/contact"
+                    className={styles.enrollBtnPrimary}
+                  >
+                    <span>Enroll Now in this Program</span>
+                    <ArrowRight size={16} />
+                  </Link>
+                  <a 
+                    href="tel:+918970997465" 
+                    className={styles.counselorCallBtn}
+                  >
+                    <Phone size={15} />
+                    <span>Talk to Counselor (+91 89709 97465)</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Placement Guarantee Banner */}
+              <div className={styles.guaranteeBanner}>
+                <div className={styles.guaranteeIconWrapper}>
+                  <Briefcase size={26} />
+                </div>
+                <div className={styles.guaranteeContent}>
+                  <h4>{selectedProgram.placementBadge}</h4>
+                  <p>{selectedProgram.placementDetails}</p>
+                </div>
+              </div>
+
+              {/* Detailed Journey Timeline */}
+              <div className={styles.timelineSectionTitle}>
+                <TrendingUp size={20} color="var(--gold)" />
+                <span>{selectedProgram.journeyTitle}</span>
+              </div>
+
+              <div className={styles.timelineGrid}>
+                {selectedProgram.journey.map((step, idx) => (
+                  <div key={idx} className={styles.timelineCard}>
+                    <span className={styles.timelineStepBadge}>{step.step}</span>
+                    <h4 className={styles.timelineStepTitle}>{step.title}</h4>
+                    <p className={styles.timelineStepDesc}>{step.desc}</p>
+                    {step.points && (
+                      <ul className={styles.timelinePointsList}>
+                        {step.points.map((pt, pIdx) => (
+                          <li key={pIdx} className={styles.timelinePointItem}>{pt}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Why Choose CEGS Pillars Box */}
+              <div className={styles.whyChooseBox}>
+                <div className={styles.whyChooseTitle}>Why Choose CEGS for this Program?</div>
+                <div className={styles.whyChoosePillGrid}>
+                  {selectedProgram.whyChoose.map((pillar, pIdx) => (
+                    <div key={pIdx} className={styles.whyPill}>
+                      <CheckCircle2 size={14} color="var(--gold)" />
+                      <span>{pillar}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </motion.div>
+          </AnimatePresence>
+
         </div>
       </section>
 
